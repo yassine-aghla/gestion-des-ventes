@@ -1,0 +1,51 @@
+#include <stdio.h>
+float calculer(int t[100],int n){
+    float s=0;
+     for(int i=0;i<n;i++){
+        s=s+t[i];
+    }
+        printf("%2.f",s);
+        return s;
+    }
+void eleve_base(int t[100],int n){
+    float max=t[0];
+    for(int i=1;i<n;i++){
+        if (t[i]>max){
+       max=t[i];
+        }
+    }
+      float min=t[0];  
+     for(int i=1;i<n;i++){
+        if (t[i]<min){
+        min=t[i];
+        }
+     }
+     printf("la valeur la plus eleve est %d et la valeur la plus base est %d",max ,min);
+}    
+void afficher (int t[100],int n){
+    float moyenne ;
+     moyenne=calculer(t,n)/n;
+    for(int i=0;i<n;i++){
+        
+        if(t[i]>moyenne ){
+            printf("%d",t[i]);
+        return;
+        }
+    }
+    printf("le moyenne est plus grand");
+}
+
+int main() {
+    // Write C code here
+   int n,t [100];
+    printf("combien de produits ont ete vendus aujourd hui \n");
+   scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        printf("entrer le montant de la vente du produit %d \n ",i+1);
+        scanf("%d",&t[i]);
+       }
+    eleve_base(t,n);
+calculer(t,n);
+afficher(t,n);
+    return 0;
+}
